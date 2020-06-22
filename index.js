@@ -1,4 +1,3 @@
-const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
 
@@ -7,9 +6,7 @@ const transporter = require('./config');
 const app = express();
 dotenv.config();
 
-const buildPath = path.join(__dirname, '..', 'build');
 app.use(express.json());
-app.use(express.static(buildPath));
 
 app.post('/send', (req, res) => {
   console.log(req.body);
