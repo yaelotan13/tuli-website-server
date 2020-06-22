@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 const transporter = require('./config');
 
@@ -7,6 +8,20 @@ const app = express();
 dotenv.config();
 
 app.use(express.json());
+
+if (process.env.NODE_ENV === 'production') {
+  console.log('running in production mode');
+  app.use(cors({
+    origin: 'https://tulis-event.firebaseapp.com',
+    credentials: true,
+  }))
+} else {
+  console.log('running in development mode');
+  app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  }))
+}
 
 app.post('/send', (req, res) => {
   console.log(req.body);
@@ -32,6 +47,6 @@ app.post('/send', (req, res) => {
   };
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`server start on port ${process.env.PORT || 3000}`);
+app.listen(process.env.PORT || 3333, () => {
+  console.log(`server start on port ${process.env.PORT || 3333}`);
 });
