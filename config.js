@@ -11,4 +11,5 @@ let transporter = nodemailer.createTransport({
     },
 });
 
+console.log(process.env.email);
 module.exports = transporter;
