@@ -30,7 +30,7 @@ app.post('/send', (req, res) => {
         from: req.body.email,
         to: process.env.email,
         subject: 'Tulis Event - New Message', 
-        html: `<div><h4>Sender Information:</h4><p><b>Name:</b> ${req.body.name}</p><p><b>Email:</b> ${req.body.email}</p><p><b>Phone Number:</b> ${req.body.tel}</p><hr></hr><br></br><p><b>Message:</b><br></br><br></br>${req.body.content}</p></div>`
+        html: `<div><h4>Sender Information:</h4><p><b>Name:</b> ${req.body.name}</p><p><b>Phone Number:</b> ${req.body.tel}</p><hr></hr><br></br><p><b>Message:</b><br></br><br></br>${req.body.content}</p></div>`
     };
 
     console.log('sending email');
@@ -39,7 +39,7 @@ app.post('/send', (req, res) => {
             console.log(error);
             res.status(500).send('has error');
         } else {
-            res.status(200).send(`<div><h4>Sender Information:</h4><p><b>Name:</b> ${req.body.name}</p><p><b>Email:</b> ${req.body.email}</p><p><b>Phone Number:</b> ${req.body.tel}</p><hr></hr><br></br><p><b>Message:</b><br></br><br></br>${req.body.content}</p></div>`);
+            res.status(200).send(`<div><h4>Sender Information:</h4><p><b>Name:</b> ${req.body.name}</p><p><b>Phone Number:</b> ${req.body.tel}</p><hr></hr><br></br><p><b>Message:</b><br></br><br></br>${req.body.content}</p></div>`);
         }
     })
   } catch (error) {
