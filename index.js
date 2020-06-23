@@ -12,7 +12,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
   console.log('running in production mode');
   app.use(cors({
-    origin: 'https://tulis-event.firebaseapp.com',
+    origin: 'https://tulis-events.com',
     credentials: true,
   }))
 } else {
